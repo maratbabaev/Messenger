@@ -4,14 +4,7 @@ import {createStore} from 'vuex'
 
 const store = createStore({
     state: {
-        chats: [],
-        headerUser: '',
-        searchResult: []
-    },
-    getters: {},
-    mutations: {
-      GET_DATA(state) {
-        const data = [
+        data: [
           {
             "id": 1,
             "name": "Tom",
@@ -141,9 +134,16 @@ const store = createStore({
               }
             ]
           }
-        ]
-        state.chats = data
-        state.searchResult = data
+        ],
+        chats: [],
+        headerUser: '',
+        searchResult: []
+    },
+    getters: {},
+    mutations: {
+      GET_DATA(state) {  
+        state.chats = state.data
+        state.searchResult = state.data
       },
       SET_USER_TO_HEAD(state, user) {
         if (user) {
